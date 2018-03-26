@@ -1,0 +1,8 @@
+{
+  "name": "shotgun-travel",
+  "app_id": "0a9fb77d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
