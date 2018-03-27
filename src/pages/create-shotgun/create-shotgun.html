@@ -6,11 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ 'SHOTGUN_MEMBERS_LIST' | translate }}</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'CREATE_SHOTGUN_HEADING' | translate }}</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
+      <button ion-button icon-only (click)="openParticipantModal()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,6 +18,39 @@
 
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <div *ngIf="participants.length == 0">
+    <h3>{{ 'CREATE_SHOTGUN_ENTRY_MESSAGE' | translate }}</h3>
+  </div>
+  <div *ngIf="participants">
+    <ion-list>
+      <ion-item-sliding *ngFor="let participant of participants" #item>
+        <ion-item>
+          <ion-thumbnail item-left>
+            <img src="{{participant.image}}" />
+          </ion-thumbnail>
+          <h3>{{ participant.userName }}</h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="removeParticipant(item, participant.userName)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div [hidden]="participants || errMessage">
+    <ion-spinner></ion-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="errMessage">
+    <h2>Error</h2>
+    <h4>{{ errMessage }}</h4>
+  </div>
 </ion-content>
+
+<ion-footer no-shadow *ngIf="participants.length > 1">
+  <ion-toolbar position="bottom" #startButton>
+    <button ion-button full (click)="startShotgunChallenge()">Create Shotgun Challenge</button>
+  </ion-toolbar>
+</ion-footer>

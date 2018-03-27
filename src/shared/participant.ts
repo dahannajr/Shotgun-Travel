@@ -1,5 +1,7 @@
 export interface Participant {
+    id: number;
     displayName: string,
     userName: string,
-    picture: string
+    image: string,
+    engaged: boolean
 }

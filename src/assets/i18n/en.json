@@ -1,4 +1,6 @@
 {
   "BACK_BUTTON_TEXT": "Back",
-  "SHOTGUN_MEMBERS_LIST": "Shotgunners"
+
+  "CREATE_SHOTGUN_HEADING": "Shotgun Challenge",
+  "CREATE_SHOTGUN_ENTRY_MESSAGE": "Start by adding participants to your Shotgun Challenge."
 }

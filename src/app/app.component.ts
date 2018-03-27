@@ -4,7 +4,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
 import { CreateShotgunPage } from '../pages/create-shotgun/create-shotgun';
 
 @Component({
